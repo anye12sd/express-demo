@@ -19,20 +19,18 @@ var responseJSON = function(res, ret){
 };
 
 //添加用户
-
-router.get('/addUser', function(req, res, next){
+router.get('/editList', function(req, res, next){
     // 从连接池获取连接
     pool.getConnection(function(err,connection){
         //获取前台页面传过来的参数
         var param = req.query || req.params;
-        console.log(param)
         //建立连接 增加一个用户信息
-        connection.query(userSql.insert, [param.uid, param.name], function(err, result){
+        connection.query(userSql.update, [param.imgUrl, param.title, +param.id], function(err, result){
             var responseResult
             if(result){
                 responseResult = {
                     code: 200,
-                    msg: '增加成功'
+                    msg: '更改成功'
                 }
             }
             // 以json格式，把操作结果返回给前台页面

@@ -1,10 +1,10 @@
 
 module.exports = {
     mysql: {
-        host: '127.0.0.1',
+        host: 'localhost',
         user: 'root',
         password: '123456',
-        database: 'ExpressDB',
+        database: 'expressdb',
         post: 3306
     }
 }
